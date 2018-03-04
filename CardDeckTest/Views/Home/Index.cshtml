@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-app="carDeckTestApp" ng-controller="carDeckTestApp">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="deck" ng-click="drawCard()">
+                <div class="text-center">
+                    <span class="black">&clubs;</span>
+                    <span class="black">&spades;</span>
+                    <span class="red">&hearts;</span>
+                    <span class="red">&diams;</span>
+                </div>
+                <div class="text-center">
+                    Deck
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" ng-click="sortHand()">Sort Hand</button>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" ng-click="resetHandAndDeck()">Reset</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>^ Click on the deck to draw cards to your hand</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 hand">
+            <div class="card" style="left: {{26*$index}}px" ng-repeat="card in hand">
+                <div ng-switch="{{card.Rank}}" class="card-rank">
+                    <div ng-switch-when="0">
+                        2
+                    </div>
+                    <div ng-switch-when="1">
+                        3
+                    </div>
+                    <div ng-switch-when="2">
+                        4
+                    </div>
+                    <div ng-switch-when="3">
+                        5
+                    </div>
+                    <div ng-switch-when="4">
+                        6
+                    </div>
+                    <div ng-switch-when="5">
+                        7
+                    </div>
+                    <div ng-switch-when="6">
+                        8
+                    </div>
+                    <div ng-switch-when="7">
+                        9
+                    </div>
+                    <div ng-switch-when="8">
+                        10
+                    </div>
+                    <div ng-switch-when="9">
+                        J
+                    </div>
+                    <div ng-switch-when="10">
+                        Q
+                    </div>
+                    <div ng-switch-when="11">
+                        K
+                    </div>
+                    <div ng-switch-when="12">
+                        A
+                    </div>
+                </div>
+                <div ng-switch="{{card.Suit}}">
+                    <div ng-switch-when="0" class="black">
+                        &clubs;
+                    </div>
+                    <div ng-switch-when="1" class="black">
+                        &spades;
+                    </div>
+                    <div ng-switch-when="2" class="red">
+                        &hearts;
+                    </div>
+                    <div ng-switch-when="3" class="red">
+                        &diams;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/app/app.js"></script>
